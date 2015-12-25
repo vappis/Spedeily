@@ -1,0 +1,9 @@
+D:\Projektit\C#\Spedeily\Spedeily\bin\Debug\Spedeily.exe.config
+D:\Projektit\C#\Spedeily\Spedeily\obj\Debug\Spedeily.csprojResolveAssemblyReference.cache
+D:\Projektit\C#\Spedeily\Spedeily\obj\Debug\Spedeily.Spedeily.resources
+D:\Projektit\C#\Spedeily\Spedeily\obj\Debug\Spedeily.Properties.Resources.resources
+D:\Projektit\C#\Spedeily\Spedeily\obj\Debug\Spedeily.csproj.GenerateResource.Cache
+D:\Projektit\C#\Spedeily\Spedeily\bin\Debug\Spedeily.exe
+D:\Projektit\C#\Spedeily\Spedeily\bin\Debug\Spedeily.pdb
+D:\Projektit\C#\Spedeily\Spedeily\obj\Debug\Spedeily.exe
+D:\Projektit\C#\Spedeily\Spedeily\obj\Debug\Spedeily.pdb
