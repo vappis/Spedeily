@@ -26,6 +26,10 @@ namespace Spedeily
         public Spedeily()
         {
             InitializeComponent();
+            lightTimer = new System.Timers.Timer(mainDelay);
+            redTimer = new System.Timers.Timer(buttonLightDelay);
+            yellowTimer = new System.Timers.Timer(buttonLightDelay);
+            greenTimer = new System.Timers.Timer(buttonLightDelay);
         }
 
         //
@@ -71,7 +75,6 @@ namespace Spedeily
                     {
                         redButton.BackColor = Color.Red;
                         redOn = true;
-                        redTimer = new System.Timers.Timer(delay);
                         redTimer.Elapsed += redTimedEvent;
                         redTimer.AutoReset = false;
                         redTimer.Enabled = true;
@@ -81,7 +84,6 @@ namespace Spedeily
                     {
                         yellowButton.BackColor = Color.Yellow;
                         yellowOn = true;
-                        yellowTimer = new System.Timers.Timer(delay);
                         yellowTimer.Elapsed += yellowTimedEvent;
                         yellowTimer.AutoReset = false;
                         yellowTimer.Enabled = true;
@@ -91,7 +93,6 @@ namespace Spedeily
                     {
                         greenButton.BackColor = Color.SpringGreen;
                         greenOn = true;
-                        greenTimer = new System.Timers.Timer(delay);
                         greenTimer.Elapsed += greenTimedEvent;
                         greenTimer.AutoReset = false;
                         greenTimer.Enabled = true;
@@ -139,12 +140,15 @@ namespace Spedeily
         */
         private void startButton_Click(object sender, EventArgs e)
         {
-            litButton.Clear();
-            pushedButton.Clear();
-            lightTimer = new System.Timers.Timer(mainDelay);
-            lightTimer.Elapsed += lightTimedEvent;
-            lightTimer.AutoReset = true;
-            lightTimer.Enabled = true;
+            if (lightTimer.Enabled == false)
+            {
+                litButton.Clear();
+                pushedButton.Clear();
+                lightTimer = new System.Timers.Timer(mainDelay);
+                lightTimer.Elapsed += lightTimedEvent;
+                lightTimer.AutoReset = true;
+                lightTimer.Enabled = true;
+            }
         }
         
         /*
