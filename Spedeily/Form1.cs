@@ -153,9 +153,8 @@ namespace Spedeily
         
         /*
             Metodi toimii ajastimen kutsumana. Se tekee vertailun litButton- ja pushedButton-listojen välillä, jatkaa peliä ja lisää marker-muuttujaan yhden, mikäli virhelyöntiä tai 
-            ylimääräisiä lyöntejä ei ole tehty, tai litButton-listassa ei ole yli neljää alkiota enempää kuin pushedButton-listassa. Mikäli ehdot eivät täyty, lightTimer-ajastin 
-            pysäytetään, nappien värit muutetaan takaisin tummiksi, ja litButton- ja pushedButton-listat sekä marker- ja points-muuttujat nollataan. Metodi myös nopeuttaa peliä jokaisella 
-            kutsulla puolen sekunnin verran.
+            ylimääräisiä lyöntejä ei ole tehty, tai litButton-listassa ei ole yli neljää alkiota enempää kuin pushedButton-listassa. Mikäli ehdot eivät täyty, ajaa endGame-metodin. 
+            Metodi myös nopeuttaa peliä jokaisella kutsulla puolen sekunnin verran.
         */
         private void lightTimedEvent(Object source, ElapsedEventArgs e)
         {
@@ -175,20 +174,29 @@ namespace Spedeily
 
             else
             {
-                lightTimer.Enabled = false;
-                redButton.BackColor = Color.DarkRed;
-                yellowButton.BackColor = Color.Gold;
-                greenButton.BackColor = Color.DarkGreen;
-                litButton.Clear();
-                pushedButton.Clear();
-                buttonLightDelay = 1000;
-                string message = "You got " + points + " points.";
-                string caption = "GAME OVER!";
-                MessageBoxButtons buttons = MessageBoxButtons.OK;
-                MessageBox.Show(message, caption, buttons);
-                marker = 0;
-                points = 0;
+                endGame();
             }
+        }
+
+        /*
+            Metodi pysäyttää lightTimer-ajastimen, muuttaa nappien värit takaisin tummiksi ja nolllaa litButton- ja pushedButton-listat sekä marker- ja points-muuttujat, sekä näyttää 
+            MessageBoxissa saavutetut pisteet.
+        */
+        private void endGame()
+        {
+            lightTimer.Enabled = false;
+            redButton.BackColor = Color.DarkRed;
+            yellowButton.BackColor = Color.Gold;
+            greenButton.BackColor = Color.DarkGreen;
+            litButton.Clear();
+            pushedButton.Clear();
+            buttonLightDelay = 1000;
+            string message = "You got " + points + " points.";
+            string caption = "GAME OVER!";
+            MessageBoxButtons buttons = MessageBoxButtons.OK;
+            MessageBox.Show(message, caption, buttons);
+            marker = 0;
+            points = 0;
         }
 
         //
